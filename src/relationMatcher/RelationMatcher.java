@@ -16,7 +16,7 @@ import relationExtractor.*;
  * search as source. If multiple matches are possible then all of them are
  * returned.
  * 
- * @author Patrick Seume
+ * @author Victor Ouko
  */
 
 public class RelationMatcher {

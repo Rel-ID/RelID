@@ -46,11 +46,15 @@ public class IndexWithElastic {
 	 */
 	public static void index(Client client) {
 		try {
+//			File[] filesList = (new File(
+//					"C:/Users/patrick/workspace2/RelID/patty-data"))
+//							.listFiles();
 			File[] filesList = (new File(
-					"C:/Users/patrick/workspace2/RelID/patty-data"))
+					"/Users/admin/Desktop/UniBonn/Modules/Semester2/EIS/Lab/Project/RelID/patty-data"))
 							.listFiles();
 			JsonConverter converter = new JsonConverter("",
-					"C:/Users/patrick/workspace2/RelID/relations/");
+			//		"C:/Users/patrick/workspace2/RelID/relations/");
+					"/Users/admin/Desktop/UniBonn/Modules/Semester2/EIS/Lab/Project/RelID/relations/");
 			for (File f : filesList) {
 				if (f.isFile()) {
 					String filename = f.getName();
@@ -60,12 +64,19 @@ public class IndexWithElastic {
 						System.out
 								.println("Converting patterns from" + filename);
 						converter.setReadLoc(
-								"C:/Users/patrick/workspace2/RelID/patty-data/"
+							//	"C:/Users/patrick/workspace2/RelID/patty-data/"
+								"/Users/admin/Desktop/UniBonn/Modules/Semester2/EIS/Lab/Project/RelID/patty-data/"
 										+ filename);
 						converter.toJson();
 						// add json to filename -> allready converted
+//						Files.move(f.toPath(),
+//								new File("C:/Users/patrick/workspace2/RelID/"
+//										+ "patty-data/"
+//										+ filename.substring(0,
+//												filename.length() - 4)
+//										+ "_json.txt").toPath());
 						Files.move(f.toPath(),
-								new File("C:/Users/patrick/workspace2/RelID/"
+								new File("/Users/admin/Desktop/UniBonn/Modules/Semester2/EIS/Lab/Project/RelID/"
 										+ "patty-data/"
 										+ filename.substring(0,
 												filename.length() - 4)
@@ -75,7 +86,8 @@ public class IndexWithElastic {
 			}
 
 			File[] relFiles = (new File(
-					"C:/Users/patrick/workspace2/RelID/relations")).listFiles();
+				//	"C:/Users/patrick/workspace2/RelID/relations")).listFiles();
+					"/Users/admin/Desktop/UniBonn/Modules/Semester2/EIS/Lab/Project/RelID/relations")).listFiles();
 
 			BulkRequestBuilder bulkRequest = client.prepareBulk();
 

@@ -22,7 +22,7 @@ import relationMatcher.RelationMatcher;
  * - finally uses class RelationMatcher to match extracted relation with a base
  * form in the index
  * 
- * @author Patrick Seume
+ * @author Victor Ouko
  * 
  */
 
